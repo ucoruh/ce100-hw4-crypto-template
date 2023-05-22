@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\CalculatorLibrary\CalculatorLibrary.csproj" />
+    <ProjectReference Include="..\CryptoLibrary\CryptoLibrary.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

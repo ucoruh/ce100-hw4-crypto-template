@@ -333,8 +333,6 @@ if [ $RETURN -eq 1 ]; then
 fi
 
 exit $RETURN
-
-
 ```
 
 This script will check astyle-options.txt file, gitignore file, README.md file and Doxyfile is exist if not it will be terminate your commit operation. Also after `astyle` installation and `astyle-options.txt` generation it will automatically format your source code before each commit. Formatting configuration will be stored in `astyle-options.txt` .
@@ -395,49 +393,49 @@ dotnet --version
 ### Create Solution with Name
 
 ```batch
-dotnet new sln -n CalculatorLibrary
+dotnet new sln -n CryptoLibrary
 ```
 
 ### Create Project Class Library with Name
 
 ```batch
-dotnet new classlib -n CalculatorLibrary
+dotnet new classlib -n CryptoLibrary
 ```
 
 ### Add Project to Solution
 
 ```batch
- dotnet sln add CalculatorLibrary
+ dotnet sln add CryptoLibrary
 ```
 
 ### Create XUnit Test for Project
 
 ```batch
-dotnet new xunit -n CalculatorLibrary.Tests
+dotnet new xunit -n CryptoLibrary.Tests
 ```
 
 ### Add Project to UnitTest Dependecy
 
 ```batch
-dotnet add CalculatorLibrary.Tests/CalculatorLibrary.Tests.csproj reference CalculatorLibrary/CalculatorLibrary.csproj
+dotnet add CryptoLibrary.Tests/CryptoLibrary.Tests.csproj reference CryptoLibrary/CryptoLibrary.csproj
 ```
 
 ### Add Consol Application
 
 ```batch
-dotnet new console -n CalculatorApp
+dotnet new console -n CryptoApp
 ```
 
 ### Add Console Application to Solution
 
 ```batch
-dotnet sln add CalculatorApp
+dotnet sln add CryptoApp
 ```
 
 ### Add Library to Application Dependecy
 
 ```batch
-dotnet add CalculatorApp/CalculatorApp.csproj reference CalculatorLibrary/CalculatorLibrary.csproj
+dotnet add CryptoApp/CryptoApp.csproj reference CryptoLibrary/CryptoLibrary.csproj
 ```
 
 After this step commit and push your work. 
@@ -459,3 +457,7 @@ After this step commit and push your work.
 ### Create Token
 
 Create Fine-grained personal access tokens [Github Token](https://github.com/settings/tokens?type=beta) and give repository permissions. Also kept token safe.
+
+
+
+### HOMEWORK
