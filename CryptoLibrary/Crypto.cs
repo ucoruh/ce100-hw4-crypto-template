@@ -1,9 +1,21 @@
-﻿using System.Runtime.Intrinsics.Arm;
+﻿using System;
+using System.Runtime.Intrinsics;
+using System.Runtime.Intrinsics.Arm;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CryptoLibrary {
-public class Crypto {
+namespace CryptoLibrary
+{
+    /// <summary>
+    /// Provides cryptographic operations such as hashing, encryption, and decryption.
+    /// </summary>
+    public class Crypto
+    {
+        /// <summary>
+        /// Computes the SHA-1 hash of the given data.
+        /// </summary>
+        /// <param name="data">The data to compute the hash for.</param>
+        /// <returns>The computed SHA-1 hash.</returns>
         public byte[] ComputeSHA1(byte[] data)
         {
             using (SHA1 sha1 = SHA1.Create())
@@ -12,6 +24,11 @@ public class Crypto {
             }
         }
 
+        /// <summary>
+        /// Computes the SHA-256 hash of the given data.
+        /// </summary>
+        /// <param name="data">The data to compute the hash for.</param>
+        /// <returns>The computed SHA-256 hash.</returns>
         public byte[] ComputeSHA256(byte[] data)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -20,6 +37,11 @@ public class Crypto {
             }
         }
 
+        /// <summary>
+        /// Computes the SHA-512 hash of the given data.
+        /// </summary>
+        /// <param name="data">The data to compute the hash for.</param>
+        /// <returns>The computed SHA-512 hash.</returns>
         public byte[] ComputeSHA512(byte[] data)
         {
             using (SHA512 sha512 = SHA512.Create())
@@ -28,6 +50,12 @@ public class Crypto {
             }
         }
 
+        /// <summary>
+        /// Encrypts the given data using the DES algorithm.
+        /// </summary>
+        /// <param name="data">The data to encrypt.</param>
+        /// <param name="key">The encryption key.</param>
+        /// <returns>The encrypted data.</returns>
         public byte[] DESEncrypt(byte[] data, string key)
         {
             using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
@@ -44,6 +72,12 @@ public class Crypto {
             }
         }
 
+        /// <summary>
+        /// Decrypts the given data using the DES algorithm.
+        /// </summary>
+        /// <param name="data">The data to decrypt.</param>
+        /// <param name="key">The decryption key.</param>
+        /// <returns>The decrypted data.</returns>
         public byte[] DESDecrypt(byte[] data, string key)
         {
             using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
@@ -60,6 +94,12 @@ public class Crypto {
             }
         }
 
+        /// <summary>
+        /// Encrypts the given data using the AES algorithm.
+        /// </summary>
+        /// <param name="data">The data to encrypt.</param>
+        /// <param name="key">The encryption key.</param>
+        /// <returns>The encrypted data.</returns>
         public byte[] AESEncrypt(byte[] data, string key)
         {
             using (System.Security.Cryptography.Aes aes = System.Security.Cryptography.Aes.Create())
@@ -76,6 +116,12 @@ public class Crypto {
             }
         }
 
+        /// <summary>
+        /// Decrypts the given data using the AES algorithm.
+        /// </summary>
+        /// <param name="data">The data to decrypt.</param>
+        /// <param name="key">The decryption key.</param>
+        /// <returns>The decrypted data.</returns>
         public byte[] AESDecrypt(byte[] data, string key)
         {
             using (System.Security.Cryptography.Aes aes = System.Security.Cryptography.Aes.Create())
@@ -92,6 +138,12 @@ public class Crypto {
             }
         }
 
+        /// <summary>
+        /// Computes the HMAC-SHA1 hash of the given data using the provided key.
+        /// </summary>
+        /// <param name="data">The data to compute the HMAC-SHA1 hash for.</param>
+        /// <param name="key">The HMAC-SHA1 key.</param>
+        /// <returns>The computed HMAC-SHA1 hash.</returns>
         public byte[] ComputeHMACSHA1(byte[] data, byte[] key)
         {
             using (HMACSHA1 hmacSha1 = new HMACSHA1(key))
@@ -100,6 +152,12 @@ public class Crypto {
             }
         }
 
+        /// <summary>
+        /// Computes the HMAC-SHA256 hash of the given data using the provided key.
+        /// </summary>
+        /// <param name="data">The data to compute the HMAC-SHA256 hash for.</param>
+        /// <param name="key">The HMAC-SHA256 key.</param>
+        /// <returns>The computed HMAC-SHA256 hash.</returns>
         public byte[] ComputeHMACSHA256(byte[] data, byte[] key)
         {
             using (HMACSHA256 hmacSha256 = new HMACSHA256(key))
@@ -108,6 +166,11 @@ public class Crypto {
             }
         }
 
+        /// <summary>
+        /// Computes the CRC32 hash of the given data.
+        /// </summary>
+        /// <param name="data">The data to compute the CRC32 hash for.</param>
+        /// <returns>The computed CRC32 hash.</returns>
         public byte[] ComputeCRC32(byte[] data)
         {
             using (CRC32 crc32 = new CRC32())
@@ -116,6 +179,11 @@ public class Crypto {
             }
         }
 
+        /// <summary>
+        /// Computes the MD5 hash of the given data.
+        /// </summary>
+        /// <param name="data">The data to compute the MD5 hash for.</param>
+        /// <returns>The computed MD5 hash.</returns>
         public byte[] ComputeMD5(byte[] data)
         {
             using (MD5 md5 = MD5.Create())
@@ -124,6 +192,11 @@ public class Crypto {
             }
         }
 
+        /// <summary>
+        /// Converts a byte array to its hexadecimal representation.
+        /// </summary>
+        /// <param name="bytes">The byte array to convert.</param>
+        /// <returns>The hexadecimal representation of the byte array.</returns>
         public string ByteArrayToHex(byte[] bytes)
         {
             StringBuilder hex = new StringBuilder(bytes.Length * 2);
@@ -132,6 +205,9 @@ public class Crypto {
             return hex.ToString();
         }
 
+        /// <summary>
+        /// Implements the CRC32 hash algorithm.
+        /// </summary>
         class CRC32 : HashAlgorithm
         {
             private const uint Poly = 0xEDB88320;
@@ -180,7 +256,5 @@ public class Crypto {
                 }
             }
         }
-
-
     }
 }
